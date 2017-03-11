@@ -30,7 +30,10 @@ namespace ImageProcessing.Histograms
                 Pen p = new Pen(clr);
                 for (int i = 0; i < data.Length; i++)
                 {
-                    g.DrawLine(p, 0, i, 0, data[i]);
+                    Point x = new Point(i, BITMAP_HEIGHT);
+                    Point y = new Point(i, BITMAP_HEIGHT - data[i]);
+                    g.DrawLine(p, x, y);
+                    Console.WriteLine("Ok: i = {0}, x = {1}, y = {2}", i, x, y);
                 }
             }
             return res;

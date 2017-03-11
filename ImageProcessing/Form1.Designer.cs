@@ -38,12 +38,12 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.histView = new System.Windows.Forms.PictureBox();
             this.rb_linear = new System.Windows.Forms.RadioButton();
             this.rb_log = new System.Windows.Forms.RadioButton();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.histView)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -114,11 +114,12 @@
             "Red",
             "Green",
             "Blue",
-            "All "});
+            "All"});
             this.comboBox1.Location = new System.Drawing.Point(724, 51);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(175, 28);
             this.comboBox1.TabIndex = 2;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -142,17 +143,17 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Image";
             // 
-            // pictureBox2
+            // histView
             // 
-            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.histView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox2.Location = new System.Drawing.Point(644, 101);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(550, 550);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 5;
-            this.pictureBox2.TabStop = false;
+            this.histView.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.histView.Location = new System.Drawing.Point(644, 101);
+            this.histView.Name = "histView";
+            this.histView.Size = new System.Drawing.Size(550, 550);
+            this.histView.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.histView.TabIndex = 5;
+            this.histView.TabStop = false;
             // 
             // rb_linear
             // 
@@ -189,7 +190,7 @@
             this.ClientSize = new System.Drawing.Size(1256, 694);
             this.Controls.Add(this.rb_log);
             this.Controls.Add(this.rb_linear);
-            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.histView);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBox1);
@@ -201,7 +202,7 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.histView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -219,7 +220,7 @@
         private System.Windows.Forms.ToolStripMenuItem grayWorldToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem referenceColorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem thirdOptonToolStripMenuItem;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox histView;
         private System.Windows.Forms.RadioButton rb_linear;
         private System.Windows.Forms.RadioButton rb_log;
     }

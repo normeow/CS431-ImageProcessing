@@ -26,8 +26,14 @@ namespace ImageProcessing.Histograms
                 for (int j = 0; j < h; j++)
                 {
                     var clr = bmp.GetPixel(i, j);
-                    //get channel value
-                    int val = (int)clr.GetType().GetProperty(channel.ToString()).GetValue(clr);
+                    
+                    int val = -1;
+                    if (channel == Channel.R)
+                        val = clr.R;
+                    else if (channel == Channel.G)
+                        val = clr.G;
+                    else if (channel == Channel.B)
+                        val = clr.B;
                     histdata[val] += 1;
                 }
         }

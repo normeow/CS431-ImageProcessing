@@ -12,7 +12,8 @@ namespace ImageProcessing
     {
         R,
         G,
-        B
+        B,
+        ALL
     }
 
     public enum Histmode
@@ -25,7 +26,6 @@ namespace ImageProcessing
     {
         private Dictionary<Channel, ImageHistogramCreator> hists;
         private Bitmap bmp;
-        private Histmode mode;
 
         private static ImageProcessingFacade instance;
 
@@ -40,13 +40,8 @@ namespace ImageProcessing
             }
             return instance;
         }
-
-        public void setMode(Histmode mode)
-        {
-            this.mode = mode;
-        }
         
-        public Bitmap getHist(Bitmap bmp, Channel channel, Color clr)
+        public Bitmap getHist(Bitmap bmp, Channel channel, Histmode mode, Color clr)
         {
             return hists[channel].getHist(bmp, clr, mode);
         }
@@ -57,6 +52,7 @@ namespace ImageProcessing
             hists.Add(Channel.R, new ChannelHistCreator(Channel.R));
             hists.Add(Channel.G, new ChannelHistCreator(Channel.G));
             hists.Add(Channel.B, new ChannelHistCreator(Channel.B));
+            hists.Add(Channel.ALL, new BrightnessHistCreator());
 
         }
     }

@@ -49,6 +49,8 @@
     <Compile Include="ColorTrasforms\ColorTransformCreator.cs" />
     <Compile Include="ColorTrasforms\GrayWorld.cs" />
     <Compile Include="ColorTrasforms\ReferenceColor.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="Data.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -61,6 +63,7 @@
     <Compile Include="GrayWorldTransformWindow.Designer.cs">
       <DependentUpon>GrayWorldTransformWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Histograms\BrightnessHistCreator.cs" />
     <Compile Include="Histograms\ChannelHistCreator.cs" />
     <Compile Include="Histograms\ImageHistogramCreator.cs" />
     <Compile Include="ImageProcessingFacade.cs" />
