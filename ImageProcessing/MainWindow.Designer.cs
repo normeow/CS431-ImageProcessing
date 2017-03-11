@@ -1,6 +1,6 @@
 ﻿namespace ImageProcessing
 {
-    partial class Form1
+    partial class MainWindow
     {
         /// <summary>
         /// Required designer variable.
@@ -80,6 +80,7 @@
             this.grayWorldToolStripMenuItem.Name = "grayWorldToolStripMenuItem";
             this.grayWorldToolStripMenuItem.Size = new System.Drawing.Size(217, 30);
             this.grayWorldToolStripMenuItem.Text = "GrayWorld";
+            this.grayWorldToolStripMenuItem.Click += new System.EventHandler(this.grayWorldToolStripMenuItem_Click);
             // 
             // referenceColorToolStripMenuItem
             // 

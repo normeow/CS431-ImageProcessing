@@ -17,7 +17,14 @@ namespace ImageProcessing.Histograms
         private const int BITMAP_HEIGHT = 256;
         private const int BITMAP_WIDTH = 256;
 
-        protected abstract void collectData(Bitmap bmp);
+        protected virtual void collectData(Bitmap bmp)
+        {
+
+            histdata = new int[256];
+            for (int i = 0; i < 256; i++)
+                histdata[i] = 0;
+
+        }
         
         public Bitmap getHist(Bitmap bmp, Color clr, Histmode mode)
         {
@@ -56,6 +63,8 @@ namespace ImageProcessing.Histograms
 
             for (int i = 0; i < res.Length; i++)
             {
+                if (res[i] == 0)
+                    continue;
                 if (mode == Histmode.Lin)
                     res[i] = (int)Math.Round(res[i] * k);
                 else if (mode == Histmode.Log)

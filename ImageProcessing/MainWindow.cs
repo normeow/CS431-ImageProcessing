@@ -11,7 +11,7 @@ using ImageProcessing.Histograms;
 
 namespace ImageProcessing
 {
-    public partial class Form1 : Form
+    public partial class MainWindow : Form
     {
         ImageProcessingFacade imProcFacade;
         Data data;
@@ -19,7 +19,7 @@ namespace ImageProcessing
         Dictionary<Channel, Color> colors;
 
         public static List<string> channels;
-        public Form1()
+        public MainWindow()
         {
             InitializeComponent();
             initialBindings();
@@ -92,6 +92,12 @@ namespace ImageProcessing
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             data.Set(Constants.currentChannel, channelDict[(string)comboBox1.SelectedItem]);
+        }
+
+        private void grayWorldToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GrayWorldTransformWindow window = new GrayWorldTransformWindow();
+            window.Show();
         }
     }
 }

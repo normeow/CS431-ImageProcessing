@@ -11,7 +11,7 @@ namespace ImageProcessing.Histograms
     {
         protected override void collectData(Bitmap bmp)
         {
-            histdata = new int[256];
+            base.collectData(bmp);
             var h = bmp.Height;
             var w = bmp.Width;
             var len = w * h;
@@ -20,6 +20,12 @@ namespace ImageProcessing.Histograms
                 {
                     var clr = bmp.GetPixel(i, j);
                     var brightness = (int)(0.3 * clr.R + 0.59 * clr.G + 0.11 * clr.B);
+                    /*
+                    if (brightness < 0)
+                        brightness = 0;
+                    if (brightness > 255)
+                        brightness = 255;
+                        */
                     histdata[brightness] += 1;
                 }
         }

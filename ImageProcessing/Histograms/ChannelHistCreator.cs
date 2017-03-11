@@ -18,7 +18,7 @@ namespace ImageProcessing.Histograms
 
         protected override void collectData(Bitmap bmp)
         {
-            histdata = new int[256];
+            base.collectData(bmp);
             var h = bmp.Height;
             var w = bmp.Width;
             var len = w * h;
