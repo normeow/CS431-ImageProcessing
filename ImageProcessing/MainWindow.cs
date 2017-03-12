@@ -99,5 +99,11 @@ namespace ImageProcessing
             GrayWorldTransformWindow window = new GrayWorldTransformWindow();
             window.Show();
         }
+
+        private void referenceColorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RefColorTransformWindow window = new RefColorTransformWindow();
+            window.Show();
+        }
     }
 }

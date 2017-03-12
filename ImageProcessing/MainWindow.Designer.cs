@@ -87,6 +87,7 @@
             this.referenceColorToolStripMenuItem.Name = "referenceColorToolStripMenuItem";
             this.referenceColorToolStripMenuItem.Size = new System.Drawing.Size(217, 30);
             this.referenceColorToolStripMenuItem.Text = "ReferenceColor";
+            this.referenceColorToolStripMenuItem.Click += new System.EventHandler(this.referenceColorToolStripMenuItem_Click);
             // 
             // thirdOptonToolStripMenuItem
             // 
@@ -184,7 +185,7 @@
             this.rb_log.UseVisualStyleBackColor = true;
             this.rb_log.CheckedChanged += new System.EventHandler(this.rb_log_CheckedChanged);
             // 
-            // Form1
+            // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -198,7 +199,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Form1";
+            this.Name = "MainWindow";
             this.Text = "ImageProcessing";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

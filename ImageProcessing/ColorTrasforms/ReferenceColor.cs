@@ -9,9 +9,32 @@ namespace ImageProcessing.ColorTrasforms
 {
     class ReferenceColor : ColorTransformCreator
     {
-        public override Bitmap transform(Bitmap bp)
+        Color srcColor, destColor;
+        public ReferenceColor(Color srcColor, Color destColor)
         {
-            throw new NotImplementedException();
+            this.srcColor = srcColor;
+            this.destColor = destColor;
+        }
+
+        public override Bitmap transform(Bitmap bmp)
+        {
+            var res = new Bitmap(bmp);
+            var h = res.Height;
+            var w = res.Width;
+            for (int i = 0; i < w; i++)
+            {
+                for (int j = 0; j < h; j++)
+                {
+                    var cur_clr = res.GetPixel(i, j);
+                    int r = normalizeColorValue(cur_clr.R * destColor.R / srcColor.R);
+                    int g = normalizeColorValue(cur_clr.G * destColor.G / srcColor.G);
+                    int b = normalizeColorValue(cur_clr.B * destColor.B / srcColor.B);
+                    Color clr = Color.FromArgb(255, r, g, b);
+                    res.SetPixel(i, j, clr);
+
+                }
+            }
+            return res;
         }
     }
 }
