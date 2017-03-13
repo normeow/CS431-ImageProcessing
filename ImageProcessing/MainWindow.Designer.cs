@@ -41,6 +41,10 @@
             this.histView = new System.Windows.Forms.PictureBox();
             this.rb_linear = new System.Windows.Forms.RadioButton();
             this.rb_log = new System.Windows.Forms.RadioButton();
+            this.toGrayScaleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.binarizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.equlizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.normalizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.histView)).BeginInit();
@@ -51,7 +55,10 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.uploadPictureToolStripMenuItem,
-            this.colorTransformationToolStripMenuItem});
+            this.colorTransformationToolStripMenuItem,
+            this.binarizeToolStripMenuItem,
+            this.equlizeToolStripMenuItem,
+            this.normalizeToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1256, 33);
@@ -70,7 +77,8 @@
             this.colorTransformationToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.grayWorldToolStripMenuItem,
             this.referenceColorToolStripMenuItem,
-            this.thirdOptonToolStripMenuItem});
+            this.thirdOptonToolStripMenuItem,
+            this.toGrayScaleToolStripMenuItem});
             this.colorTransformationToolStripMenuItem.Name = "colorTransformationToolStripMenuItem";
             this.colorTransformationToolStripMenuItem.Size = new System.Drawing.Size(188, 29);
             this.colorTransformationToolStripMenuItem.Text = "ColorTransformation";
@@ -185,6 +193,31 @@
             this.rb_log.UseVisualStyleBackColor = true;
             this.rb_log.CheckedChanged += new System.EventHandler(this.rb_log_CheckedChanged);
             // 
+            // toGrayScaleToolStripMenuItem
+            // 
+            this.toGrayScaleToolStripMenuItem.Name = "toGrayScaleToolStripMenuItem";
+            this.toGrayScaleToolStripMenuItem.Size = new System.Drawing.Size(217, 30);
+            this.toGrayScaleToolStripMenuItem.Text = "ToGrayScale";
+            // 
+            // binarizeToolStripMenuItem
+            // 
+            this.binarizeToolStripMenuItem.Name = "binarizeToolStripMenuItem";
+            this.binarizeToolStripMenuItem.Size = new System.Drawing.Size(84, 29);
+            this.binarizeToolStripMenuItem.Text = "Binarize";
+            // 
+            // equlizeToolStripMenuItem
+            // 
+            this.equlizeToolStripMenuItem.Name = "equlizeToolStripMenuItem";
+            this.equlizeToolStripMenuItem.Size = new System.Drawing.Size(79, 29);
+            this.equlizeToolStripMenuItem.Text = "Equlize";
+            this.equlizeToolStripMenuItem.Click += new System.EventHandler(this.equlizeToolStripMenuItem_Click);
+            // 
+            // normalizeToolStripMenuItem
+            // 
+            this.normalizeToolStripMenuItem.Name = "normalizeToolStripMenuItem";
+            this.normalizeToolStripMenuItem.Size = new System.Drawing.Size(104, 29);
+            this.normalizeToolStripMenuItem.Text = "Normalize";
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -225,6 +258,10 @@
         private System.Windows.Forms.PictureBox histView;
         private System.Windows.Forms.RadioButton rb_linear;
         private System.Windows.Forms.RadioButton rb_log;
+        private System.Windows.Forms.ToolStripMenuItem toGrayScaleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem binarizeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem equlizeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem normalizeToolStripMenuItem;
     }
 }
 

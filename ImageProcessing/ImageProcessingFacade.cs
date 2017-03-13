@@ -53,7 +53,11 @@ namespace ImageProcessing
             hists.Add(Channel.G, new ChannelHistCreator(Channel.G));
             hists.Add(Channel.B, new ChannelHistCreator(Channel.B));
             hists.Add(Channel.ALL, new BrightnessHistCreator());
+        }
 
+        public Bitmap Equalize(Bitmap bmp)
+        {
+            return hists[Channel.ALL].Equalize(bmp);
         }
     }
 }

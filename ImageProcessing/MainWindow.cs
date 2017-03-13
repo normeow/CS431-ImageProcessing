@@ -105,5 +105,10 @@ namespace ImageProcessing
             RefColorTransformWindow window = new RefColorTransformWindow();
             window.Show();
         }
+
+        private void equlizeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Bitmap bmp = imProcFacade.Equalize(data.Get<Bitmap>(Constants.image));
+        }
     }
 }

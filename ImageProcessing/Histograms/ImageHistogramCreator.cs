@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using Emgu.CV;
+using Emgu.Util;
+using Emgu.CV.Structure;
 
 namespace ImageProcessing.Histograms
 {
@@ -28,8 +31,7 @@ namespace ImageProcessing.Histograms
         
         public Bitmap getHist(Bitmap bmp, Color clr, Histmode mode)
         {
-            if (histdata == null)
-                collectData(bmp);
+            collectData(bmp);
             Bitmap res = new Bitmap(BITMAP_WIDTH, BITMAP_HEIGHT);
             var data = getScaled(mode);
             using (Graphics g = Graphics.FromImage(res))
@@ -72,6 +74,17 @@ namespace ImageProcessing.Histograms
 
             }
             return res;
+        }
+
+        public Bitmap Equalize(Bitmap bmp)
+        {
+            collectData(bmp);
+            Image<Hls, byte> image = new Image<Hls, byte>(bmp);
+            Image<Gray, Byte> imageL = image[1];
+            imageL._EqualizeHist();
+            image[1] = imageL;
+            Image<Bgr, byte> resimg = image.Convert<Bgr, byte>();
+            return resimg.ToBitmap();
         }
     }
 }
