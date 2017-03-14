@@ -123,5 +123,10 @@ namespace ImageProcessing
         {
             data.Set(Constants.image, imProcFacade.ColorTransform(new GrayScaleTransformer(), data.Get<Bitmap>(Constants.image)));
         }
+
+        private void normalizeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            data.Set(Constants.image, imProcFacade.Normalize(data.Get<Bitmap>(Constants.image)));
+        }
     }
 }

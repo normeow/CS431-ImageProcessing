@@ -59,9 +59,26 @@ namespace ImageProcessing
             hists.Add(Channel.ALL, new BrightnessHistCreator());
         }
 
+
+        //awfull
         public Bitmap Equalize(Bitmap bmp)
         {
-            return hists[Channel.ALL].Equalize(bmp);
+            Image<Hls, byte> image = new Image<Hls, byte>(bmp);
+            Image<Gray, Byte> imageL = image[1];
+            imageL._EqualizeHist();
+            image[1] = imageL;
+            Image<Bgr, byte> resimg = image.Convert<Bgr, byte>();
+            return resimg.ToBitmap();
+        }
+
+        public Bitmap Normalize(Bitmap bmp)
+        {
+            Image<Hls, byte> image = new Image<Hls, byte>(bmp);
+            Image<Gray, Byte> imageL = image[1];
+            CvInvoke.Normalize(imageL, imageL, 255, 0, Emgu.CV.CvEnum.NormType.MinMax);
+            image[1] = imageL;
+            Image<Bgr, byte> resimg = image.Convert<Bgr, byte>();
+            return resimg.ToBitmap();
         }
 
         public Bitmap ColorTransform(ColorTransformCreator transformer, Bitmap bmp)

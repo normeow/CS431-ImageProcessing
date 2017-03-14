@@ -14,8 +14,6 @@ namespace ImageProcessing.Histograms
 
     public abstract class ImageHistogramCreator
     {
-        
-
         protected int[] histdata;
         private const int BITMAP_HEIGHT = 256;
         private const int BITMAP_WIDTH = 256;
@@ -76,15 +74,6 @@ namespace ImageProcessing.Histograms
             return res;
         }
 
-        public Bitmap Equalize(Bitmap bmp)
-        {
-            collectData(bmp);
-            Image<Hls, byte> image = new Image<Hls, byte>(bmp);
-            Image<Gray, Byte> imageL = image[1];
-            imageL._EqualizeHist();
-            image[1] = imageL;
-            Image<Bgr, byte> resimg = image.Convert<Bgr, byte>();
-            return resimg.ToBitmap();
-        }
+        
     }
 }

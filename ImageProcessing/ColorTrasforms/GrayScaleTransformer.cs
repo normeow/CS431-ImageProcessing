@@ -20,7 +20,6 @@ namespace ImageProcessing.ColorTrasforms
                 {
                     var clr = res.GetPixel(i, j);
                     int val = (int)(0.3 * clr.R + 0.59 * clr.G+ 0.11 * clr.B);
-                    
                     Color color = Color.FromArgb(255, val, val, val);
                     res.SetPixel(i, j, color);
 

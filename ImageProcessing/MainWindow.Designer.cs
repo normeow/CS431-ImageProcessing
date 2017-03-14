@@ -128,6 +128,7 @@
             this.normalizeToolStripMenuItem.Name = "normalizeToolStripMenuItem";
             this.normalizeToolStripMenuItem.Size = new System.Drawing.Size(104, 29);
             this.normalizeToolStripMenuItem.Text = "Normalize";
+            this.normalizeToolStripMenuItem.Click += new System.EventHandler(this.normalizeToolStripMenuItem_Click);
             // 
             // pictureBox1
             // 
