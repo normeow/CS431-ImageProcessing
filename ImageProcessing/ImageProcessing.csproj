@@ -56,6 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ColorTrasforms\ColorTransformCreator.cs" />
+    <Compile Include="ColorTrasforms\GrayScaleTransformer.cs" />
     <Compile Include="ColorTrasforms\GrayWorld.cs" />
     <Compile Include="ColorTrasforms\ReferenceColor.cs" />
     <Compile Include="Constants.cs" />
@@ -116,11 +117,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="cvextern.dll" />
-    <Content Include="msvcp140.dll" />
-    <Content Include="opencv_ffmpeg310.dll" />
-    <Content Include="vcruntime140.dll" />
+    <Content Include="dlls\cvextern.dll" />
+    <Content Include="dlls\msvcp140.dll" />
+    <Content Include="dlls\opencv_ffmpeg310.dll" />
+    <Content Include="dlls\vcruntime140.dll" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

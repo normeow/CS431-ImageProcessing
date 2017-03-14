@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ImageProcessing.Histograms;
+using ImageProcessing.ColorTrasforms;
 
 namespace ImageProcessing
 {
@@ -51,6 +52,7 @@ namespace ImageProcessing
             data.Set(Constants.currentChannel, Channel.ALL);
             data.Set(Constants.image, null);
             data.BindChangeField(Constants.image, updateHistView);
+            data.BindChangeField(Constants.image, updatepicBox);
             data.BindChangeField(Constants.currentChannel, updateHistView);
             data.BindChangeField(Constants.currentHistMode, updateHistView);
         }
@@ -102,13 +104,24 @@ namespace ImageProcessing
 
         private void referenceColorToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
             RefColorTransformWindow window = new RefColorTransformWindow();
             window.Show();
         }
 
         private void equlizeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Bitmap bmp = imProcFacade.Equalize(data.Get<Bitmap>(Constants.image));
+            data.Set(Constants.image, imProcFacade.Equalize(data.Get<Bitmap>(Constants.image)));
+        }
+
+        private void updatepicBox()
+        {
+            pictureBox1.Image = data.Get<Bitmap>(Constants.image);
+        }
+
+        private void toGrayScaleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            data.Set(Constants.image, imProcFacade.ColorTransform(new GrayScaleTransformer(), data.Get<Bitmap>(Constants.image)));
         }
     }
 }

@@ -34,6 +34,10 @@
             this.grayWorldToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.referenceColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thirdOptonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toGrayScaleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.binarizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.equlizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.normalizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -41,10 +45,6 @@
             this.histView = new System.Windows.Forms.PictureBox();
             this.rb_linear = new System.Windows.Forms.RadioButton();
             this.rb_log = new System.Windows.Forms.RadioButton();
-            this.toGrayScaleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.binarizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.equlizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.normalizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.histView)).BeginInit();
@@ -102,6 +102,32 @@
             this.thirdOptonToolStripMenuItem.Name = "thirdOptonToolStripMenuItem";
             this.thirdOptonToolStripMenuItem.Size = new System.Drawing.Size(217, 30);
             this.thirdOptonToolStripMenuItem.Text = "ThirdOpton";
+            // 
+            // toGrayScaleToolStripMenuItem
+            // 
+            this.toGrayScaleToolStripMenuItem.Name = "toGrayScaleToolStripMenuItem";
+            this.toGrayScaleToolStripMenuItem.Size = new System.Drawing.Size(217, 30);
+            this.toGrayScaleToolStripMenuItem.Text = "ToGrayScale";
+            this.toGrayScaleToolStripMenuItem.Click += new System.EventHandler(this.toGrayScaleToolStripMenuItem_Click);
+            // 
+            // binarizeToolStripMenuItem
+            // 
+            this.binarizeToolStripMenuItem.Name = "binarizeToolStripMenuItem";
+            this.binarizeToolStripMenuItem.Size = new System.Drawing.Size(84, 29);
+            this.binarizeToolStripMenuItem.Text = "Binarize";
+            // 
+            // equlizeToolStripMenuItem
+            // 
+            this.equlizeToolStripMenuItem.Name = "equlizeToolStripMenuItem";
+            this.equlizeToolStripMenuItem.Size = new System.Drawing.Size(79, 29);
+            this.equlizeToolStripMenuItem.Text = "Equlize";
+            this.equlizeToolStripMenuItem.Click += new System.EventHandler(this.equlizeToolStripMenuItem_Click);
+            // 
+            // normalizeToolStripMenuItem
+            // 
+            this.normalizeToolStripMenuItem.Name = "normalizeToolStripMenuItem";
+            this.normalizeToolStripMenuItem.Size = new System.Drawing.Size(104, 29);
+            this.normalizeToolStripMenuItem.Text = "Normalize";
             // 
             // pictureBox1
             // 
@@ -192,31 +218,6 @@
             this.rb_log.Text = "Log";
             this.rb_log.UseVisualStyleBackColor = true;
             this.rb_log.CheckedChanged += new System.EventHandler(this.rb_log_CheckedChanged);
-            // 
-            // toGrayScaleToolStripMenuItem
-            // 
-            this.toGrayScaleToolStripMenuItem.Name = "toGrayScaleToolStripMenuItem";
-            this.toGrayScaleToolStripMenuItem.Size = new System.Drawing.Size(217, 30);
-            this.toGrayScaleToolStripMenuItem.Text = "ToGrayScale";
-            // 
-            // binarizeToolStripMenuItem
-            // 
-            this.binarizeToolStripMenuItem.Name = "binarizeToolStripMenuItem";
-            this.binarizeToolStripMenuItem.Size = new System.Drawing.Size(84, 29);
-            this.binarizeToolStripMenuItem.Text = "Binarize";
-            // 
-            // equlizeToolStripMenuItem
-            // 
-            this.equlizeToolStripMenuItem.Name = "equlizeToolStripMenuItem";
-            this.equlizeToolStripMenuItem.Size = new System.Drawing.Size(79, 29);
-            this.equlizeToolStripMenuItem.Text = "Equlize";
-            this.equlizeToolStripMenuItem.Click += new System.EventHandler(this.equlizeToolStripMenuItem_Click);
-            // 
-            // normalizeToolStripMenuItem
-            // 
-            this.normalizeToolStripMenuItem.Name = "normalizeToolStripMenuItem";
-            this.normalizeToolStripMenuItem.Size = new System.Drawing.Size(104, 29);
-            this.normalizeToolStripMenuItem.Text = "Normalize";
             // 
             // MainWindow
             // 

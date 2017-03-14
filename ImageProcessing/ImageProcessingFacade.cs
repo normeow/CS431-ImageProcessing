@@ -5,6 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using ImageProcessing.Histograms;
 using System.Drawing;
+using Emgu.CV;
+using Emgu.Util;
+using Emgu.CV.Structure;
+using ImageProcessing.ColorTrasforms;
 
 namespace ImageProcessing
 {
@@ -58,6 +62,11 @@ namespace ImageProcessing
         public Bitmap Equalize(Bitmap bmp)
         {
             return hists[Channel.ALL].Equalize(bmp);
+        }
+
+        public Bitmap ColorTransform(ColorTransformCreator transformer, Bitmap bmp)
+        {
+            return transformer.transform(bmp);
         }
     }
 }
