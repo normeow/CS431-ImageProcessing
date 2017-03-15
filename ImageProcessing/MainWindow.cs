@@ -128,5 +128,11 @@ namespace ImageProcessing
         {
             data.Set(Constants.image, imProcFacade.Normalize(data.Get<Bitmap>(Constants.image)));
         }
+
+        private void quantizeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BrightnessQuantization window = new BrightnessQuantization();
+            window.Show();
+        }
     }
 }

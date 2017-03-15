@@ -45,6 +45,7 @@
             this.histView = new System.Windows.Forms.PictureBox();
             this.rb_linear = new System.Windows.Forms.RadioButton();
             this.rb_log = new System.Windows.Forms.RadioButton();
+            this.quantizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.histView)).BeginInit();
@@ -58,7 +59,8 @@
             this.colorTransformationToolStripMenuItem,
             this.binarizeToolStripMenuItem,
             this.equlizeToolStripMenuItem,
-            this.normalizeToolStripMenuItem});
+            this.normalizeToolStripMenuItem,
+            this.quantizeToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1256, 33);
@@ -220,6 +222,13 @@
             this.rb_log.UseVisualStyleBackColor = true;
             this.rb_log.CheckedChanged += new System.EventHandler(this.rb_log_CheckedChanged);
             // 
+            // quantizeToolStripMenuItem
+            // 
+            this.quantizeToolStripMenuItem.Name = "quantizeToolStripMenuItem";
+            this.quantizeToolStripMenuItem.Size = new System.Drawing.Size(94, 29);
+            this.quantizeToolStripMenuItem.Text = "Quantize";
+            this.quantizeToolStripMenuItem.Click += new System.EventHandler(this.quantizeToolStripMenuItem_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -264,6 +273,7 @@
         private System.Windows.Forms.ToolStripMenuItem binarizeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem equlizeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem normalizeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem quantizeToolStripMenuItem;
     }
 }
 

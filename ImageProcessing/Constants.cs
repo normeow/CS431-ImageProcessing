@@ -17,5 +17,8 @@ namespace ImageProcessing
         public static string destColor = "destclr";
         public static string srcColor = "srcclr";
 
+        public static string quatizelevels = "quantlvl";
+
+
     }
 }

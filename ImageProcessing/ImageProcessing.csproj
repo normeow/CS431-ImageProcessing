@@ -55,6 +55,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BrightnessQuantization.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BrightnessQuantization.Designer.cs">
+      <DependentUpon>BrightnessQuantization.cs</DependentUpon>
+    </Compile>
     <Compile Include="ColorTrasforms\ColorTransformCreator.cs" />
     <Compile Include="ColorTrasforms\GrayScaleTransformer.cs" />
     <Compile Include="ColorTrasforms\GrayWorld.cs" />
@@ -85,6 +91,9 @@
     <Compile Include="RefColorTransformWindow.Designer.cs">
       <DependentUpon>RefColorTransformWindow.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="BrightnessQuantization.resx">
+      <DependentUpon>BrightnessQuantization.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
