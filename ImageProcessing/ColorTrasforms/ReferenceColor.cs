@@ -16,7 +16,7 @@ namespace ImageProcessing.ColorTrasforms
             this.destColor = destColor;
         }
 
-        public override Bitmap transform(Bitmap bmp)
+        public override Bitmap Transform(Bitmap bmp)
         {
             var res = new Bitmap(bmp);
             var h = res.Height;
@@ -26,9 +26,9 @@ namespace ImageProcessing.ColorTrasforms
                 for (int j = 0; j < h; j++)
                 {
                     var cur_clr = res.GetPixel(i, j);
-                    int r = normalizeColorValue(cur_clr.R * destColor.R / srcColor.R);
-                    int g = normalizeColorValue(cur_clr.G * destColor.G / srcColor.G);
-                    int b = normalizeColorValue(cur_clr.B * destColor.B / srcColor.B);
+                    int r = NormalizeColorValue(cur_clr.R * destColor.R / srcColor.R);
+                    int g = NormalizeColorValue(cur_clr.G * destColor.G / srcColor.G);
+                    int b = NormalizeColorValue(cur_clr.B * destColor.B / srcColor.B);
                     Color clr = Color.FromArgb(255, r, g, b);
                     res.SetPixel(i, j, clr);
 

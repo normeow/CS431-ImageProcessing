@@ -38,6 +38,7 @@
             this.binarizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.equlizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.normalizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.quantizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -45,7 +46,10 @@
             this.histView = new System.Windows.Forms.PictureBox();
             this.rb_linear = new System.Windows.Forms.RadioButton();
             this.rb_log = new System.Windows.Forms.RadioButton();
-            this.quantizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manualTresholdInputToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.localToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.otsuLocalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.otsuHierarchicalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.histView)).BeginInit();
@@ -57,10 +61,10 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.uploadPictureToolStripMenuItem,
             this.colorTransformationToolStripMenuItem,
-            this.binarizeToolStripMenuItem,
             this.equlizeToolStripMenuItem,
             this.normalizeToolStripMenuItem,
-            this.quantizeToolStripMenuItem});
+            this.quantizeToolStripMenuItem,
+            this.binarizeToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1256, 33);
@@ -114,6 +118,11 @@
             // 
             // binarizeToolStripMenuItem
             // 
+            this.binarizeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.manualTresholdInputToolStripMenuItem,
+            this.localToolStripMenuItem,
+            this.otsuLocalToolStripMenuItem,
+            this.otsuHierarchicalToolStripMenuItem});
             this.binarizeToolStripMenuItem.Name = "binarizeToolStripMenuItem";
             this.binarizeToolStripMenuItem.Size = new System.Drawing.Size(84, 29);
             this.binarizeToolStripMenuItem.Text = "Binarize";
@@ -131,6 +140,13 @@
             this.normalizeToolStripMenuItem.Size = new System.Drawing.Size(104, 29);
             this.normalizeToolStripMenuItem.Text = "Normalize";
             this.normalizeToolStripMenuItem.Click += new System.EventHandler(this.normalizeToolStripMenuItem_Click);
+            // 
+            // quantizeToolStripMenuItem
+            // 
+            this.quantizeToolStripMenuItem.Name = "quantizeToolStripMenuItem";
+            this.quantizeToolStripMenuItem.Size = new System.Drawing.Size(94, 29);
+            this.quantizeToolStripMenuItem.Text = "Quantize";
+            this.quantizeToolStripMenuItem.Click += new System.EventHandler(this.quantizeToolStripMenuItem_Click);
             // 
             // pictureBox1
             // 
@@ -222,12 +238,29 @@
             this.rb_log.UseVisualStyleBackColor = true;
             this.rb_log.CheckedChanged += new System.EventHandler(this.rb_log_CheckedChanged);
             // 
-            // quantizeToolStripMenuItem
+            // manualTresholdInputToolStripMenuItem
             // 
-            this.quantizeToolStripMenuItem.Name = "quantizeToolStripMenuItem";
-            this.quantizeToolStripMenuItem.Size = new System.Drawing.Size(94, 29);
-            this.quantizeToolStripMenuItem.Text = "Quantize";
-            this.quantizeToolStripMenuItem.Click += new System.EventHandler(this.quantizeToolStripMenuItem_Click);
+            this.manualTresholdInputToolStripMenuItem.Name = "manualTresholdInputToolStripMenuItem";
+            this.manualTresholdInputToolStripMenuItem.Size = new System.Drawing.Size(271, 30);
+            this.manualTresholdInputToolStripMenuItem.Text = "Manual treshold input";
+            // 
+            // localToolStripMenuItem
+            // 
+            this.localToolStripMenuItem.Name = "localToolStripMenuItem";
+            this.localToolStripMenuItem.Size = new System.Drawing.Size(271, 30);
+            this.localToolStripMenuItem.Text = "Otsu | Global";
+            // 
+            // otsuLocalToolStripMenuItem
+            // 
+            this.otsuLocalToolStripMenuItem.Name = "otsuLocalToolStripMenuItem";
+            this.otsuLocalToolStripMenuItem.Size = new System.Drawing.Size(271, 30);
+            this.otsuLocalToolStripMenuItem.Text = "Otsu | Local";
+            // 
+            // otsuHierarchicalToolStripMenuItem
+            // 
+            this.otsuHierarchicalToolStripMenuItem.Name = "otsuHierarchicalToolStripMenuItem";
+            this.otsuHierarchicalToolStripMenuItem.Size = new System.Drawing.Size(271, 30);
+            this.otsuHierarchicalToolStripMenuItem.Text = "Otsu | Hierarchical";
             // 
             // MainWindow
             // 
@@ -274,6 +307,10 @@
         private System.Windows.Forms.ToolStripMenuItem equlizeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem normalizeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quantizeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem manualTresholdInputToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem localToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem otsuLocalToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem otsuHierarchicalToolStripMenuItem;
     }
 }
 

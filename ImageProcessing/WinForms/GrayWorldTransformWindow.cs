@@ -20,7 +20,7 @@ namespace ImageProcessing
             
             Bitmap bmp =  Data.Instance.Get<Bitmap>(Constants.image);
             ColorTransformCreator transformer = new GrayWorld();
-            pictureBox1.Image = transformer.transform(bmp);
+            pictureBox1.Image = transformer.Transform(bmp);
         }
 
         private void saveImageToolStripMenuItem_Click(object sender, EventArgs e)

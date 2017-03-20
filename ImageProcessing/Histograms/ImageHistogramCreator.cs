@@ -18,18 +18,16 @@ namespace ImageProcessing.Histograms
         private const int BITMAP_HEIGHT = 256;
         private const int BITMAP_WIDTH = 256;
 
-        protected virtual void collectData(Bitmap bmp)
+        protected virtual void CollectData(Bitmap bmp)
         {
-
             histdata = new int[256];
             for (int i = 0; i < 256; i++)
                 histdata[i] = 0;
 
         }
         
-        public Bitmap getHist(Bitmap bmp, Color clr, Histmode mode)
+        public Bitmap getHist(Color clr, Histmode mode)
         {
-            collectData(bmp);
             Bitmap res = new Bitmap(BITMAP_WIDTH, BITMAP_HEIGHT);
             var data = getScaled(mode);
             using (Graphics g = Graphics.FromImage(res))

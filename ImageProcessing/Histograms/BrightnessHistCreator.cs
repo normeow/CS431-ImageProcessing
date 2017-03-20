@@ -9,9 +9,14 @@ namespace ImageProcessing.Histograms
 {
     class BrightnessHistCreator : ImageHistogramCreator
     {
-        protected override void collectData(Bitmap bmp)
+        public BrightnessHistCreator(Bitmap bmp)
         {
-            base.collectData(bmp);
+            CollectData(bmp);
+        }
+
+        protected override void CollectData(Bitmap bmp)
+        {
+            base.CollectData(bmp);
             var h = bmp.Height;
             var w = bmp.Width;
             var len = w * h;
@@ -20,12 +25,6 @@ namespace ImageProcessing.Histograms
                 {
                     var clr = bmp.GetPixel(i, j);
                     var brightness = (int)(0.3 * clr.R + 0.59 * clr.G + 0.11 * clr.B);
-                    /*
-                    if (brightness < 0)
-                        brightness = 0;
-                    if (brightness > 255)
-                        brightness = 255;
-                        */
                     histdata[brightness] += 1;
                 }
         }

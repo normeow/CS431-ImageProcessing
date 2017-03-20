@@ -14,7 +14,8 @@ namespace ImageProcessing
 {
     public partial class MainWindow : Form
     {
-        ImageProcessingFacade imProcFacade;
+        ImageProcessingFacade imageProcessingFacade;
+        ImageHistogramsFacade imageHistogramsFacade;
         Data data;
         Dictionary<string, Channel> channelDict;
         Dictionary<Channel, Color> colors;
@@ -32,7 +33,8 @@ namespace ImageProcessing
         private void initialBindings()
         {
 
-            imProcFacade = ImageProcessingFacade.getInstance();
+            imageProcessingFacade = ImageProcessingFacade.getInstance();
+            imageHistogramsFacade = new ImageHistogramsFacade();
             data = Data.Instance;
 
             channels = new List<string>(){ "Red", "Green", "Blue", "All" };
@@ -51,8 +53,10 @@ namespace ImageProcessing
             data.Set(Constants.currentHistMode, Histmode.Log);
             data.Set(Constants.currentChannel, Channel.ALL);
             data.Set(Constants.image, null);
-            data.BindChangeField(Constants.image, updateHistView);
+
+            
             data.BindChangeField(Constants.image, updatepicBox);
+            data.BindChangeField(Constants.image, updateHistView);
             data.BindChangeField(Constants.currentChannel, updateHistView);
             data.BindChangeField(Constants.currentHistMode, updateHistView);
         }
@@ -60,11 +64,11 @@ namespace ImageProcessing
         private void uploadPictureToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+            openFileDialog.Filter = Constants.imageFilterName;
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 Bitmap bmp = new Bitmap(openFileDialog.FileName);
-                pictureBox1.Image = bmp;
+                imageHistogramsFacade.SetImage(bmp);
                 data.Set(Constants.image, bmp);
             }
 
@@ -80,16 +84,6 @@ namespace ImageProcessing
             data.Set(Constants.currentHistMode, Histmode.Log);
         }
 
-        private void updateHistView()
-        {
-            if (data.Get(Constants.image) == null)
-                return;
-            var img = data.Get<Bitmap>(Constants.image);
-            var channel = data.Get<Channel>(Constants.currentChannel);
-            var mode = data.Get<Histmode>(Constants.currentHistMode);
-            var color = colors[channel];
-            histView.Image = imProcFacade.getHist(img, channel, mode, color);
-        }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -111,7 +105,24 @@ namespace ImageProcessing
 
         private void equlizeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            data.Set(Constants.image, imProcFacade.Equalize(data.Get<Bitmap>(Constants.image)));
+            data.Set(Constants.image, imageProcessingFacade.Equalize(data.Get<Bitmap>(Constants.image)));
+        }
+
+
+        private void toGrayScaleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            data.Set(Constants.image, imageProcessingFacade.ColorTransform(new GrayScaleTransformer(), data.Get<Bitmap>(Constants.image)));
+        }
+
+        private void normalizeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            data.Set(Constants.image, imageProcessingFacade.Normalize(data.Get<Bitmap>(Constants.image)));
+        }
+
+        private void quantizeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BrightnessQuantization window = new BrightnessQuantization();
+            window.Show();
         }
 
         private void updatepicBox()
@@ -119,20 +130,14 @@ namespace ImageProcessing
             pictureBox1.Image = data.Get<Bitmap>(Constants.image);
         }
 
-        private void toGrayScaleToolStripMenuItem_Click(object sender, EventArgs e)
+        private void updateHistView()
         {
-            data.Set(Constants.image, imProcFacade.ColorTransform(new GrayScaleTransformer(), data.Get<Bitmap>(Constants.image)));
-        }
-
-        private void normalizeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            data.Set(Constants.image, imProcFacade.Normalize(data.Get<Bitmap>(Constants.image)));
-        }
-
-        private void quantizeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            BrightnessQuantization window = new BrightnessQuantization();
-            window.Show();
+            if (data.Get(Constants.image) == null)
+                return;
+            var channel = data.Get<Channel>(Constants.currentChannel);
+            var mode = data.Get<Histmode>(Constants.currentHistMode);
+            var color = colors[channel];
+            histView.Image = imageHistogramsFacade.GetHistogram(channel, color, mode);
         }
     }
 }

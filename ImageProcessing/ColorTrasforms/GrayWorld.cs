@@ -11,7 +11,7 @@ namespace ImageProcessing.ColorTrasforms
     {
         int avg_r, avg_g, avg_b, avg;
 
-        public override Bitmap transform(Bitmap bmp)
+        public override Bitmap Transform(Bitmap bmp)
         {
             countAvg(bmp);
             var res = new Bitmap(bmp);
@@ -22,9 +22,9 @@ namespace ImageProcessing.ColorTrasforms
                 for (int j = 0; j < h; j++)
                 {
                     var cur_clr = res.GetPixel(i, j);
-                    int r = normalizeColorValue(cur_clr.R * avg / avg_r);
-                    int g = normalizeColorValue(cur_clr.G * avg / avg_g);
-                    int b = normalizeColorValue(cur_clr.B * avg / avg_b);
+                    int r = NormalizeColorValue(cur_clr.R * avg / avg_r);
+                    int g = NormalizeColorValue(cur_clr.G * avg / avg_g);
+                    int b = NormalizeColorValue(cur_clr.B * avg / avg_b);
                     Color clr = Color.FromArgb(255, r, g, b);
                     res.SetPixel(i, j, clr);
 

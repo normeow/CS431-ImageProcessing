@@ -55,10 +55,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BrightnessQuantization.cs">
+    <Compile Include="Histograms\ImageHistogramsFacade.cs" />
+    <Compile Include="WinForms\BrightnessQuantization.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BrightnessQuantization.Designer.cs">
+    <Compile Include="WinForms\BrightnessQuantization.Designer.cs">
       <DependentUpon>BrightnessQuantization.cs</DependentUpon>
     </Compile>
     <Compile Include="ColorTrasforms\ColorTransformCreator.cs" />
@@ -67,16 +68,16 @@
     <Compile Include="ColorTrasforms\ReferenceColor.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Data.cs" />
-    <Compile Include="MainWindow.cs">
+    <Compile Include="WinForms\MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainWindow.Designer.cs">
+    <Compile Include="WinForms\MainWindow.Designer.cs">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="GrayWorldTransformWindow.cs">
+    <Compile Include="WinForms\GrayWorldTransformWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GrayWorldTransformWindow.Designer.cs">
+    <Compile Include="WinForms\GrayWorldTransformWindow.Designer.cs">
       <DependentUpon>GrayWorldTransformWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="Histograms\BrightnessHistCreator.cs" />
@@ -85,19 +86,19 @@
     <Compile Include="ImageProcessingFacade.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RefColorTransformWindow.cs">
+    <Compile Include="WinForms\RefColorTransformWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RefColorTransformWindow.Designer.cs">
+    <Compile Include="WinForms\RefColorTransformWindow.Designer.cs">
       <DependentUpon>RefColorTransformWindow.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="BrightnessQuantization.resx">
+    <EmbeddedResource Include="WinForms\BrightnessQuantization.resx">
       <DependentUpon>BrightnessQuantization.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainWindow.resx">
+    <EmbeddedResource Include="WinForms\MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GrayWorldTransformWindow.resx">
+    <EmbeddedResource Include="WinForms\GrayWorldTransformWindow.resx">
       <DependentUpon>GrayWorldTransformWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -109,7 +110,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="RefColorTransformWindow.resx">
+    <EmbeddedResource Include="WinForms\RefColorTransformWindow.resx">
       <DependentUpon>RefColorTransformWindow.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">

@@ -11,14 +11,16 @@ namespace ImageProcessing.Histograms
     {
         Channel channel;
 
-        public ChannelHistCreator(Channel channel)
+        public ChannelHistCreator(Bitmap bmp, Channel channel)
         {
             this.channel = channel;
+            CollectData(bmp);
         }
 
-        protected override void collectData(Bitmap bmp)
+
+        protected override void CollectData(Bitmap bmp)
         {
-            base.collectData(bmp);
+            base.CollectData(bmp);
             var h = bmp.Height;
             var w = bmp.Width;
             var len = w * h;

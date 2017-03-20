@@ -9,9 +9,9 @@ namespace ImageProcessing.ColorTrasforms
 {
     abstract class ColorTransformCreator
     {
-        public abstract Bitmap transform(Bitmap bp);
+        public abstract Bitmap Transform(Bitmap bp);
 
-        protected int normalizeColorValue(int value)
+        protected int NormalizeColorValue(int value)
         {
             if (value < 0)
                 return 0;

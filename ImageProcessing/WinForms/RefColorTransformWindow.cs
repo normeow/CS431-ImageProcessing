@@ -43,7 +43,7 @@ namespace ImageProcessing
             var src = data.Get<Color>(Constants.srcColor);
             var dest = data.Get<Color>(Constants.destColor);
             ColorTransformCreator refColor = new ReferenceColor(src, dest);
-            bmp = refColor.transform(bmp);
+            bmp = refColor.Transform(bmp);
             pictureBox1.Image = bmp;
 
 

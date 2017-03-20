@@ -9,7 +9,7 @@ namespace ImageProcessing.ColorTrasforms
 {
     class GrayScaleTransformer : ColorTransformCreator
     {
-        public override Bitmap transform(Bitmap bmp)
+        public override Bitmap Transform(Bitmap bmp)
         {
             var res = new Bitmap(bmp);
             var h = res.Height;

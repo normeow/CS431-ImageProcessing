@@ -12,24 +12,9 @@ using ImageProcessing.ColorTrasforms;
 
 namespace ImageProcessing
 {
-    public enum Channel
-    {
-        R,
-        G,
-        B,
-        ALL
-    }
-
-    public enum Histmode
-    {
-        Log,
-        Lin
-    }
-
     class ImageProcessingFacade
     {
-        private Dictionary<Channel, ImageHistogramCreator> hists;
-        private Bitmap bmp;
+        
 
         private static ImageProcessingFacade instance;
 
@@ -40,27 +25,10 @@ namespace ImageProcessing
             if (instance == null)
             {
                 instance = new ImageProcessingFacade();
-                instance.setAllHists();
             }
             return instance;
         }
-
-        public Bitmap getHist(Bitmap bmp, Channel channel, Histmode mode, Color clr)
-        {
-            return hists[channel].getHist(bmp, clr, mode);
-        }
-
-        private void setAllHists()
-        {
-            hists = new Dictionary<Channel, ImageHistogramCreator>();
-            hists.Add(Channel.R, new ChannelHistCreator(Channel.R));
-            hists.Add(Channel.G, new ChannelHistCreator(Channel.G));
-            hists.Add(Channel.B, new ChannelHistCreator(Channel.B));
-            hists.Add(Channel.ALL, new BrightnessHistCreator());
-        }
-
-
-        //awfull
+        
         public Bitmap Equalize(Bitmap bmp)
         {
             Image<Hls, byte> image = new Image<Hls, byte>(bmp);
@@ -83,7 +51,7 @@ namespace ImageProcessing
 
         public Bitmap ColorTransform(ColorTransformCreator transformer, Bitmap bmp)
         {
-            return transformer.transform(bmp);
+            return transformer.Transform(bmp);
         }
 
         public Bitmap Quantize(Bitmap bmp, int levels)
@@ -108,23 +76,6 @@ namespace ImageProcessing
 
                 }
             return res;
-        }
-
-    
-        //it's easy just keys=[0..255]
-        private Dictionary<int, Color> getQuantizeColorMap(int levels)
-        {
-            int step = 256 / levels;
-            Dictionary<int, Color> res = new Dictionary<int, Color>();
-            for (int i = 0; i < 255; i += step)
-            {
-                for (int j = i; j < i + step; i++)
-                {
-                    //Color clr = Color.FromArgb(255, );
-                    //res.Add(j, clr);
-                }
-            }
-            throw new NotImplementedException();
         }
     }
 }
