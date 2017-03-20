@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ImageProcessing.ColorTrasforms;
 
-namespace ImageProcessing
+namespace ImageProcessing.WinForms
 {
     public partial class GrayWorldTransformWindow : Form
     {

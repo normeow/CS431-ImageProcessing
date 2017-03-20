@@ -1,4 +1,4 @@
-﻿namespace ImageProcessing
+﻿namespace ImageProcessing.WinForms
 {
     partial class RefColorTransformWindow
     {

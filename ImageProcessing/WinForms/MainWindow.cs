@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using ImageProcessing.Histograms;
 using ImageProcessing.ColorTrasforms;
 
-namespace ImageProcessing
+namespace ImageProcessing.WinForms
 {
     public partial class MainWindow : Form
     {
@@ -33,7 +33,7 @@ namespace ImageProcessing
         private void initialBindings()
         {
 
-            imageProcessingFacade = ImageProcessingFacade.getInstance();
+            imageProcessingFacade = ImageProcessingFacade.GetInstance();
             imageHistogramsFacade = new ImageHistogramsFacade();
             data = Data.Instance;
 
@@ -138,6 +138,12 @@ namespace ImageProcessing
             var mode = data.Get<Histmode>(Constants.currentHistMode);
             var color = colors[channel];
             histView.Image = imageHistogramsFacade.GetHistogram(channel, color, mode);
+        }
+
+        private void manualTresholdInputToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ManualBinarizationWindow window = new ManualBinarizationWindow();
+            window.Show();
         }
     }
 }

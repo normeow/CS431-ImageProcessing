@@ -1,4 +1,4 @@
-﻿namespace ImageProcessing
+﻿namespace ImageProcessing.WinForms
 {
     partial class MainWindow
     {
@@ -35,10 +35,14 @@
             this.referenceColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thirdOptonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toGrayScaleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.binarizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.equlizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.normalizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quantizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.binarizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manualTresholdInputToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.localToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.otsuLocalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.otsuHierarchicalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -46,10 +50,6 @@
             this.histView = new System.Windows.Forms.PictureBox();
             this.rb_linear = new System.Windows.Forms.RadioButton();
             this.rb_log = new System.Windows.Forms.RadioButton();
-            this.manualTresholdInputToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.localToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.otsuLocalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.otsuHierarchicalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.histView)).BeginInit();
@@ -116,17 +116,6 @@
             this.toGrayScaleToolStripMenuItem.Text = "ToGrayScale";
             this.toGrayScaleToolStripMenuItem.Click += new System.EventHandler(this.toGrayScaleToolStripMenuItem_Click);
             // 
-            // binarizeToolStripMenuItem
-            // 
-            this.binarizeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.manualTresholdInputToolStripMenuItem,
-            this.localToolStripMenuItem,
-            this.otsuLocalToolStripMenuItem,
-            this.otsuHierarchicalToolStripMenuItem});
-            this.binarizeToolStripMenuItem.Name = "binarizeToolStripMenuItem";
-            this.binarizeToolStripMenuItem.Size = new System.Drawing.Size(84, 29);
-            this.binarizeToolStripMenuItem.Text = "Binarize";
-            // 
             // equlizeToolStripMenuItem
             // 
             this.equlizeToolStripMenuItem.Name = "equlizeToolStripMenuItem";
@@ -148,101 +137,23 @@
             this.quantizeToolStripMenuItem.Text = "Quantize";
             this.quantizeToolStripMenuItem.Click += new System.EventHandler(this.quantizeToolStripMenuItem_Click);
             // 
-            // pictureBox1
+            // binarizeToolStripMenuItem
             // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 101);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(550, 550);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Red",
-            "Green",
-            "Blue",
-            "All"});
-            this.comboBox1.Location = new System.Drawing.Point(724, 51);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(175, 28);
-            this.comboBox1.TabIndex = 2;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(650, 54);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 20);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Channel";
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(265, 54);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 20);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Image";
-            // 
-            // histView
-            // 
-            this.histView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.histView.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.histView.Location = new System.Drawing.Point(644, 101);
-            this.histView.Name = "histView";
-            this.histView.Size = new System.Drawing.Size(550, 550);
-            this.histView.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.histView.TabIndex = 5;
-            this.histView.TabStop = false;
-            // 
-            // rb_linear
-            // 
-            this.rb_linear.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.rb_linear.AutoSize = true;
-            this.rb_linear.Location = new System.Drawing.Point(1024, 55);
-            this.rb_linear.Name = "rb_linear";
-            this.rb_linear.Size = new System.Drawing.Size(78, 24);
-            this.rb_linear.TabIndex = 6;
-            this.rb_linear.TabStop = true;
-            this.rb_linear.Text = "Linear";
-            this.rb_linear.UseVisualStyleBackColor = true;
-            this.rb_linear.CheckedChanged += new System.EventHandler(this.rb_linear_CheckedChanged);
-            // 
-            // rb_log
-            // 
-            this.rb_log.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.rb_log.AutoSize = true;
-            this.rb_log.Location = new System.Drawing.Point(1130, 55);
-            this.rb_log.Name = "rb_log";
-            this.rb_log.Size = new System.Drawing.Size(61, 24);
-            this.rb_log.TabIndex = 7;
-            this.rb_log.TabStop = true;
-            this.rb_log.Text = "Log";
-            this.rb_log.UseVisualStyleBackColor = true;
-            this.rb_log.CheckedChanged += new System.EventHandler(this.rb_log_CheckedChanged);
+            this.binarizeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.manualTresholdInputToolStripMenuItem,
+            this.localToolStripMenuItem,
+            this.otsuLocalToolStripMenuItem,
+            this.otsuHierarchicalToolStripMenuItem});
+            this.binarizeToolStripMenuItem.Name = "binarizeToolStripMenuItem";
+            this.binarizeToolStripMenuItem.Size = new System.Drawing.Size(84, 29);
+            this.binarizeToolStripMenuItem.Text = "Binarize";
             // 
             // manualTresholdInputToolStripMenuItem
             // 
             this.manualTresholdInputToolStripMenuItem.Name = "manualTresholdInputToolStripMenuItem";
-            this.manualTresholdInputToolStripMenuItem.Size = new System.Drawing.Size(271, 30);
-            this.manualTresholdInputToolStripMenuItem.Text = "Manual treshold input";
+            this.manualTresholdInputToolStripMenuItem.Size = new System.Drawing.Size(281, 30);
+            this.manualTresholdInputToolStripMenuItem.Text = "Manual threshold input";
+            this.manualTresholdInputToolStripMenuItem.Click += new System.EventHandler(this.manualTresholdInputToolStripMenuItem_Click);
             // 
             // localToolStripMenuItem
             // 
@@ -261,6 +172,96 @@
             this.otsuHierarchicalToolStripMenuItem.Name = "otsuHierarchicalToolStripMenuItem";
             this.otsuHierarchicalToolStripMenuItem.Size = new System.Drawing.Size(271, 30);
             this.otsuHierarchicalToolStripMenuItem.Text = "Otsu | Hierarchical";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 101);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(550, 550);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Red",
+            "Green",
+            "Blue",
+            "All"});
+            this.comboBox1.Location = new System.Drawing.Point(724, 51);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(175, 28);
+            this.comboBox1.TabIndex = 2;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(650, 54);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(68, 20);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Channel";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(265, 54);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(54, 20);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Image";
+            // 
+            // histView
+            // 
+            this.histView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.histView.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.histView.Location = new System.Drawing.Point(644, 101);
+            this.histView.Name = "histView";
+            this.histView.Size = new System.Drawing.Size(550, 550);
+            this.histView.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.histView.TabIndex = 5;
+            this.histView.TabStop = false;
+            // 
+            // rb_linear
+            // 
+            this.rb_linear.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.rb_linear.AutoSize = true;
+            this.rb_linear.Location = new System.Drawing.Point(1024, 55);
+            this.rb_linear.Name = "rb_linear";
+            this.rb_linear.Size = new System.Drawing.Size(78, 24);
+            this.rb_linear.TabIndex = 6;
+            this.rb_linear.TabStop = true;
+            this.rb_linear.Text = "Linear";
+            this.rb_linear.UseVisualStyleBackColor = true;
+            this.rb_linear.CheckedChanged += new System.EventHandler(this.rb_linear_CheckedChanged);
+            // 
+            // rb_log
+            // 
+            this.rb_log.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.rb_log.AutoSize = true;
+            this.rb_log.Location = new System.Drawing.Point(1130, 55);
+            this.rb_log.Name = "rb_log";
+            this.rb_log.Size = new System.Drawing.Size(61, 24);
+            this.rb_log.TabIndex = 7;
+            this.rb_log.TabStop = true;
+            this.rb_log.Text = "Log";
+            this.rb_log.UseVisualStyleBackColor = true;
+            this.rb_log.CheckedChanged += new System.EventHandler(this.rb_log_CheckedChanged);
             // 
             // MainWindow
             // 

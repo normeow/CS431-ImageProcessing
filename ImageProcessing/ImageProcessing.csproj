@@ -56,6 +56,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Histograms\ImageHistogramsFacade.cs" />
+    <Compile Include="WinForms\ManualBinarizationWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\ManualBinarizationWindow.Designer.cs">
+      <DependentUpon>ManualBinarizationWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="WinForms\BrightnessQuantization.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +98,9 @@
     <Compile Include="WinForms\RefColorTransformWindow.Designer.cs">
       <DependentUpon>RefColorTransformWindow.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="WinForms\ManualBinarizationWindow.resx">
+      <DependentUpon>ManualBinarizationWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WinForms\BrightnessQuantization.resx">
       <DependentUpon>BrightnessQuantization.cs</DependentUpon>
     </EmbeddedResource>
@@ -124,7 +133,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="WinForms\App.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="dlls\cvextern.dll" />

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ImageProcessing
+namespace ImageProcessing.WinForms
 {
     public partial class BrightnessQuantization : Form
     {
@@ -18,7 +18,7 @@ namespace ImageProcessing
         {   
             InitializeComponent();
             data = Data.Instance;
-            imProcFacade = ImageProcessingFacade.getInstance();
+            imProcFacade = ImageProcessingFacade.GetInstance();
             pictureBox1.Image = data.Get<Bitmap>(Constants.image);
         }
 
